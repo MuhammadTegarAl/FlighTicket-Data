@@ -1,0 +1,52 @@
+@layout('default')
+@section('header')
+    <header>
+        <div id="jumbotron" class="jumbotron-fluid">
+            <div class="row">
+                <div class="col-7">
+                    <img src="headerimg.svg" alt="">
+                </div>
+                <div class="col-5">
+                    <div class="text-header">
+                        <h1 class="display-5">
+                            Selamat Datang di<br>
+                            FlighTciket Database
+                        </h1>
+                        <h4>
+                            Your Airlines Solutions
+                        </h4>
+                        <a href="#konten"><button class="btn btn-dark">Mulai Sekarang</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+@endsection
+@section('content')
+<div id="konten" class="row">
+    <div class="col-3"></div>
+    <div class="col-2 card m-2">
+        <div class="card-body">
+            <h4>Maskapai</h4>
+            <img class="img-fluid p-2 m-2" src="" alt="">
+            <a href="/maskapai"><button class="btn btn-dark">Lihat data</button></a>
+        </div>
+    </div>
+    <div class="col-2 card m-2">
+        <div class="card-body">
+            <h4>Bandara</h4>
+            <img class="img-fluid p-2 m-2" src="" alt="">
+            <a href="/bandara"><button class="btn btn-dark">Lihat data</button></a>
+        </div>
+    </div>
+    <div class="col-2 card m-2">
+        <div class="card-body">
+            <h4>Schedule</h4>
+            <img class="img-fluid p-2 m-2" src="" alt="">
+            <a href="/schedule"><button class="btn btn-dark">Lihat data</button></a>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+@endsection
+<br><br>

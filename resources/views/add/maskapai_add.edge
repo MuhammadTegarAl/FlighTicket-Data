@@ -1,0 +1,32 @@
+@layout('form')
+@section('content')
+<div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Input Data Maskapai</h1>
+    </header>
+    <form action="/maskapai" method="POST">
+        <div class="form-group p-2">
+            <label for="nama">Nama Maskapai</label>
+            <input placeholder="Nama Maskapai" class="form-control" type="text" name="nama">
+        </div>
+        <div class="form-group p-2">
+            <label for="logo">Logo</label>
+            <input placeholder="Masukkan Link Logo"  class="form-control"  type="text" name="logo">
+        </div>
+        <div class="form-group p-2">
+            <label for="kode">Kode</label>
+            <input placeholder="Kode"  class="form-control"  type="text" name="kode">
+        </div>
+        <div class="form-group p-2">
+            <label for="callsign">Callsign</label>
+            <input placeholder="Callsign"  class="form-control"  type="text" name="callsign">
+        </div>
+        <div class="row p-4">
+            <button class='submit-button'><i class="far fa-save"></i> Submit</button>
+        </div>        
+    </form>
+  </div>
+@endsection
+  
+
+

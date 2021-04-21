@@ -1,0 +1,69 @@
+@layout('form')
+@section('content')
+
+
+
+<div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Input Data Schedule</h1>
+    </header>
+    <form action="/schedule" method="POST">
+        <div class="form-group p-2">
+            <label for="maskapai_id">Maskapai</label>
+            <select class="form-control" name="maskapai_id">
+                @each(maskapai in maskapais)
+                <option placeholder=""  value="{{maskapai.id}}">{{maskapai.nama }} - {{ maskapai.kode}}</option>
+                @endeach
+            </select>
+        </div>
+        <div class="form-group p-2">
+            <label for="bandaraKeberangkatan_id">Keberangakatan</label>
+            <select class="form-control" name="bandaraKeberangkatan_id">
+                @each(bandara in bandaras)
+                <option placeholder=""  value="{{bandara.id}}">{{bandara.nama}} - {{bandara.kode}} - {{bandara.kota}}</option>
+                @endeach
+            </select>
+        </div>
+        <div class="form-group p-2">
+            <label for="waktuKeberangkatan">Waktu Keberangkatan</label>
+            <input  class="form-control"  type="datetime-local" name="waktuKeberangkatan" required>
+        </div>
+        <div class="form-group p-2">
+            <label for="bandaraKedatangan_id">Kedatangan</label>
+            <select class="form-control" name="bandaraKedatangan_id">
+                @each(bandara in bandaras)
+                <option placeholder=""  value="{{bandara.id}}">{{bandara.nama}} - {{bandara.kode}} - {{bandara.kota}}</option>
+                @endeach
+            </select>
+        </div>
+        <div class="form-group p-2">
+            <label for="waktuKedatangan">Waktu Kedatangan</label>
+            <input  class="form-control"  type="datetime-local" name="waktuKedatangan" required>
+        </div>
+        <div class="form-group p-2">
+            <label for="durasiPenerbangan">Durasi Penerbangan</label>
+            <input placeholder="Masukkan Durasi"  class="form-control"  type="number" name="durasiPenerbangan" required>
+        </div>
+        <div class="form-group p-2">
+            <label for="seatClass">Seat Class</label>
+            <select name="seatClass" class="form-control">
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Bisnis">Bisnis</option>
+                <option value="Eksekutif">Eksekutif</option>
+            </select>
+        </div>
+        <div class="form-group p-2">
+            <label for="kapasitas">Kapasitas</label>
+            <input placeholder="Masukkan kapasitas"  class="form-control"  type="number" name="kapasitas" required>
+        </div>
+        <div class="form-group p-2">
+            <label for="jenisPesawat">Jenis Pesawat</label>
+            <input placeholder="Masukkan jenis Pesawat"  class="form-control"  type="text" name="jenisPesawat" required>
+        </div>
+       
+        <div class="row p-4">
+            <button class='submit-button'><i class="far fa-save"></i> Submit</button>
+        </div>
+    </form>
+  </div>
+@endsection

@@ -1,0 +1,50 @@
+@layout('default')
+@section('content')
+<div class="row">
+  <div class="col-6">
+    <h1>Tabel Maskapai</h1>
+  </div>
+  <div class="col-6">
+    <form action="">
+      <div class="row">
+        <div class="col-8">
+          <input class="form-control" type="text" placeholder="Search.." name="cari">
+        </div>
+        <div class="col-4">
+          <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i> Cari</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<a href="maskapai/create"><button class="btn btn-dark"><i class="fas fa-plus"></i> Add</button></a>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="tg-0pky">ID</th>
+        <th class="tg-0pky">Nama Maskapai</th>
+        <th class="tg-0pky">Logo</th>
+        <th class="tg-0lax">Kode</th>
+        <th class="tg-0lax">Callsign</th>
+      </tr>
+    </thead>
+    <tbody>
+      @each(maskapai in maskapais)
+      <tr>
+        <td class="tg-0lax">{{maskapai.id}}</td>
+        <td class="tg-0lax">{{maskapai.nama}}</td>
+        <td class="tg-0lax"><img src="{{maskapai.logo}}" class="img-fluid" alt="logo {{maskapai.nama}}"></td>
+        <td class="tg-0lax">{{maskapai.kode}}</td>
+        <td class="tg-0lax">{{maskapai.callsign}}</td>
+        <td class="tg-0lax">
+          <a href="/maskapai/{{maskapai.id}}" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Data Details"><i class="fas fa-info-circle"></i></a>
+          <a href="/maskapai/{{maskapai.id}}/edit" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"><i class="fas fa-edit"></i></a>
+          <a href="/maskapai/{{maskapai.id}}/destroy" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
+        </td>
+      </tr>
+      @endeach
+    </tbody>
+  </table>
+@endsection

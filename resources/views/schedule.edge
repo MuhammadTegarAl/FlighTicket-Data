@@ -1,0 +1,53 @@
+@layout('default')
+@section('content')
+<div class="row">
+  <div class="col-6">
+    <h1>Tabel Schedules</h1>
+  </div>
+  <div class="col-6">
+    <form action="">
+      <div class="row">
+        <div class="col-8">
+          <input class="form-control" type="text" placeholder="Search.." name="cari">
+        </div>
+        <div class="col-4">
+          <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i> Cari</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<a href="schedule/create"><button class="btn btn-dark"><i class="fas fa-plus"></i> Add</button></a>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="tg-0pky">Nama Maskapai</th>
+        <th class="tg-0pky">Kota Keberangkatan</th>
+        <th class="tg-0lax">Waktu Keberangkatan</th>
+        <th class="tg-0lax">Kota Kedatangan</th>
+        <th class="tg-0lax">Waktu Kedatangan</th>
+        <th class="tg-0lax">Jenis Pesawat</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      @each(schedule in schedules)
+      <tr>
+        <td class="tg-0lax">{{schedule.maskapai.nama}}</td>
+        <td class="tg-0lax">{{schedule.bandaraKeberangkatan.nama}}</td>
+        <td class="tg-0lax">{{schedule.waktuKeberangkatan}}</td>
+        <td class="tg-0lax">{{schedule.bandaraKedatangan.nama}}</td>
+        <td class="tg-0lax">{{schedule.waktuKedatangan}}</td>
+        <td class="tg-0lax">{{schedule.jenisPesawat}}</td>
+        <td class="tg-0lax">
+          <a href="/schedule/{{schedule.id}}" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Data Details"><i class="fas fa-info-circle"></i></a>
+          <a href="/schedule/{{schedule.id}}/edit" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"><i class="fas fa-edit"></i></a>
+          <a href="/schedule/{{schedule.id}}/destroy" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
+        </td>
+      </tr>
+      @endeach
+    </tbody>
+  </table>
+@endsection

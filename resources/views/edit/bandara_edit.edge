@@ -1,0 +1,32 @@
+@layout('form')
+@section('content')
+<div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Edit Data Bandara</h1>
+    </header>
+    <form action="/bandara/{{bandara.id}}" method="POST">
+        <div class="form-group p-2">
+            <label for="nama">Nama Bandara</label>
+            <input placeholder="Nama Bandara" class="form-control" type="text" name="nama" value="{{bandara.nama}}">
+        </div>
+        <div class="form-group p-2">
+            <label for="kode">Kode</label>
+            <input placeholder="Nama Ketua"  class="form-control"  type="text" name="kode" value="{{bandara.kode}}">
+        </div>
+        <div class="form-group p-2">
+            <label for="provinsi">Provinsi</label>
+            <input placeholder="Kontak bandara"  class="form-control"  type="text" name="provinsi" value="{{bandara.provinsi}}">
+        </div>
+        <div class="form-group p-2">
+            <label for="kota">Kota</label>
+            <input placeholder="Kontak bandara"  class="form-control"  type="text" name="kota" value="{{bandara.kota}}">
+        </div>
+        <div class="row p-4">
+            <button class='submit-buttton'><i class="far fa-save"></i> Submit</button>
+        </div>        
+    </form>
+  </div>
+@endsection
+  
+
+
